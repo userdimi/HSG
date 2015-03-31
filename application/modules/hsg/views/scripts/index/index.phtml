@@ -1,0 +1,37 @@
+
+<?php foreach($this->articleList as $article):?>
+<div>
+<h2>
+<a href="<?php echo $this->url(array(
+    'module' => 'hsg', 'controller' => 'index', 
+    'action' => 'show', 'id' => $article->getId()
+)); ?>"><?php echo $article->getTitle(); ?></a>
+</h2>
+<p><em>
+Geschrieben von 
+<a href="<?php echo $this->url(array(
+    'module' => 'hsg', 'controller' => 'index', 
+    'action' => 'user', 'id' => $article->getUser()->getId()
+)); ?>"><?php echo $article->getUser()->getName(); ?></a> 
+am <?php echo $article->getDate(); ?> 
+in Kategorie "
+<a href="<?php echo $this->url(array(
+    'module' => 'hsg', 'controller' => 'index', 
+    'action' => 'category', 'id' => $article->getCategory()->getId()
+)); ?>"><?php echo $article->getCategory()->getName(); ?></a>"
+</em></p>
+<?php echo $article->getTeaser(); ?>
+<p>
+<a href="<?php echo $this->url(array(
+    'module' => 'hsg', 'controller' => 'index', 
+    'action' => 'show', 'id' => $article->getId()
+)); ?>">weiter lesen</a>
+</p>
+</div>
+<?php endforeach; ?>
+<div class="box info center">
+<?php
+echo $this->paginate(array('module'=>'hsg', 'controller'=>'index', 'action'=>'index'), 
+	 $this->pageHandling);
+ ?>
+ </div>
