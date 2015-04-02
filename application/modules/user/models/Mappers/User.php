@@ -29,7 +29,7 @@ class User_Model_Mappers_User
 		return $model;
 	}
 
-	public function fetchSingel($id)
+	public function fetchSingle($id)
 	{
 		$row = $this->getTable()->fetchRow("user_id = '" . (int) $id ."'");
 

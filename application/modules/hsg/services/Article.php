@@ -71,8 +71,45 @@ class Hsg_Service_Article
 			$items  = $this->_items;
 		}
 
-		return array("max" => cout($articleList), "current" => $page, "step"=>$this->_items);
+		return array("max" => count($articleList), "current" => $page, "step"=>$this->_items);
 	}
+
+	public function fetchListByCategory($category, $page = 1, $items = null)
+	{
+		$articleList = $this->getArticleMapper()->fetchListByCategory($category);
+
+		if(is_null($page))
+		{
+			$page = 1;
+		}
+
+		if(is_null($items))
+		{
+			$items = $this->_items;
+		}
+
+		return array_slice($articleList, ($page * 1) * $items, $items);
+	}
+
+
+	public function pageListByCategory($category, $page = 1, $items = null)
+	{
+		$articleList = $this->getArticleMapper()->fetchListByCategory($category);
+
+		if(is_null($page))
+		{
+			$page = 1;
+		}
+
+		if(is_null($items))
+		{
+			$items = $this->_items;
+		}
+
+		return array("max" => count($articleList), "current" => $page, "step"=>$this->_items);
+	}
+
+
 
 	public function fetchListByStatus($status,$page = 1, $items = null)
 	{

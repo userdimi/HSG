@@ -25,7 +25,7 @@ class Hsg_Model_Mappers_Category
 
 	public function fetchSingle($identifier)
 	{ 
-		$row = $this->getTable()->fecthRow('category_id = "' . (int) $identifier .'"');
+		$row = $this->getTable()->fetchRow('category_id = "' . (int) $identifier .'"');
 
 		if(is_null($row))
 		{

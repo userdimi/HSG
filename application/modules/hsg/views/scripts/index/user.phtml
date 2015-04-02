@@ -1,4 +1,9 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Index</b> and script/action name <b>user</b></p>
+<?php foreach($this->articleList as $article):?>
+<div>
+<?php echo $this->showArticle($article); ?>
+<p><a href="<?php echo $this->url(array('module' => 'hsg', 'controller' => 'index', 'action' => 'show', 'id' => $article->getId())); ?>">weiter lesen</a></p>
+</div>
+<?php endforeach; ?>
+<div class="box info center">
+<?php echo $this->paginate(array('module' => 'hsg', 'controller' => 'index', 'action' => 'user', 'id' => $this->user->getId()), $this->pageHandling); ?>
 </div>

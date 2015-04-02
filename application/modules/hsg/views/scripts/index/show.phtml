@@ -1,28 +1,10 @@
 <div>
-<h2>
-<a href="<?php echo $this->url(array(
- 'module' => 'hsg', 'controller' => 'index', 
- 'action' => 'show', 'id' => $this->article->getId()
-)); ?>"><?php echo $this->article->getTitle(); ?></a>
-</h2>
-<p><em>
-Geschrieben von 
-<a href="<?php echo $this->url(array(
- 'module' => 'hsg', 'controller' => 'index', 
- 'action' => 'user', 'id' => $this->article->getUser()->getId()
-)); ?>"><?php echo $this->article->getUser()->getName(); ?></a> 
-am <?php echo $this->article->getDate(); ?> 
-in Kategorie "
-<a href="<?php echo $this->url(array(
- 'module' => 'hsg', 'controller' => 'index', 
- 'action' => 'category', 'id' => $this->article->getCategory()->getId()
-)); ?>"><?php echo $this->article->getCategory()->getName(); ?></a>"
-</em></p>
-<?php echo $this->article->getText(); ?>
+<?php echo $this->showArticle($this->article, false);?>
 <p>
-<a href="<?php echo $this->url(array(
- 'module' => 'hsg', 'controller' => 'index', 
- 'action' => 'index'
-)); ?>">zurück</a>
+<?php
+	echo "<a href='".$this->url(array(
+			'module'=>'hsg','controller'=>'index',
+			'action'=>'index'), 'default', true)."'> zurück </a>";
+?>
 </p>
 </div>

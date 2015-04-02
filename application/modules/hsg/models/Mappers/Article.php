@@ -108,7 +108,7 @@ class Hsg_Model_Mappers_Article
 		return $list;
 	}
 
-	public function fetchSingleByCategory($category)
+	public function fetchListByCategory($category)
 	{
 		$select = $this->getTable()->select();
 		$select->where("article_category = ?", (int) $category);

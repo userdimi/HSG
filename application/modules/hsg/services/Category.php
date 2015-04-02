@@ -2,11 +2,11 @@
 
 class Hsg_Service_Category
 {
-	protected $_instance = null;
+	protected static $_instance = null;
 
 	public static function getInstance()
 	{
-		if(isset(self::$_instance) || null === $_instance)
+		if(isset(self::$_instance) || null === self::$_instance)
 		{
 			self::$_instance = new Hsg_Service_Category;
 		}
@@ -22,7 +22,7 @@ class Hsg_Service_Category
 	{
 		if(!isset($this->_mapper))
 		{
-			$this->_mapper = new Hsg_Model_Mapper_Category();
+			$this->_mapper = new Hsg_Model_Mappers_Category();
 		}
 
 		return $this->_mapper;
